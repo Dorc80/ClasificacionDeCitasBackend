@@ -3,10 +3,11 @@ const Author = require('../model/author');
 
 const authorsPost = (req, resp) => {
 
-    const { name } = req.body;
+    const { name, quotes } = req.body;
 
     const author = new Author();
     author.name = name;
+    author.quotes = quotes;
 
     author.save()
         .then(_author => resp.status(201).json({ message: "Success", _author }))
